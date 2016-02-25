@@ -1,0 +1,171 @@
+#home {
+  background-color: white;
+  width: 830px;
+  color: black;
+  margin: 0 auto 0 auto;
+  padding: 0 0 0 0;
+}
+
+#home header {
+  display: block; position: absolute; height: 245px; top: 0;
+}
+
+#home header .pony { position: absolute; bottom: 35px; }
+#home header #left-pony { left: 500px; }
+#home header #right-pony { left: 80px; }
+#home header #grass { position: absolute; bottom: 0; }
+
+#home article {
+  display: block; width: 695px;
+  margin: 228px auto 0 auto;
+  padding: 35px;
+  background-color: #eee;
+  font-family: Times, "Times New Roman", sans-serif;
+  font-size: 13px;
+  color: black;
+}
+
+#home a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid #AAA;
+  transition: border-color 0.1s linear;
+  display: inline-block;
+  height: 14px;
+}
+
+#home a:hover {
+  border-color: #333;
+}
+
+#home sup {
+  font-size: 9px;
+  vertical-align: baseline;
+  position: relative;
+  top: -5px;
+  line-height: 14px;
+}
+
+#home sup a { height: 12px; }
+
+#home p, #home nav {
+  display: block;
+  text-align: justify;
+  line-height: 17px;
+}
+
+#home nav {
+  text-align: center;
+  color: rgba(0,0,0,0.65);
+  cursor: default;
+}
+
+#home nav a {
+  display: inline-block;
+  margin: 0 1ex 0 1ex;
+}
+
+#home article .initial {
+  color: transparent;
+  background-image: url("b-initial.png");
+  width: 33px; height: 42px;
+  /*font-size: 400%;
+  font-family: "VespasiansFlorials";*/
+  display: inline-block;
+  float: left;
+  margin-top: -10px;
+  margin-left: -7px;
+  margin-right: 3px;
+}
+
+/* bitcoin qrcode display helpers */
+a.qrpop img {
+  position: absolute;
+  background: white;
+  border-radius: 0.5em;
+  padding: 1em;
+  width: 15em;
+  margin-left: -1em;
+  margin-top: 1.5em;
+  box-shadow: 0px 4px 50px rgba(0,0,0,0.2);
+  border: 1px solid rgba(128,128,128,0.35);
+  cursor: pointer;
+  
+  visibility: hidden;
+  opacity: 0.0;
+  transition: opacity 0.1s linear;
+}
+
+a.qrpop:hover img {
+  visibility: visible;
+  opacity: 1.0;
+}
+
+
+/* Error Page */
+html.error-img, body.error-img {
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+}
+/*.error-img div {
+  position: absolute;
+  top: 50%; left: 50%;
+}
+
+#missing.error-img div img {
+  margin-left: -190px;
+  margin-top: -180px;
+}
+
+#broken.error-img div img {
+  margin-left: -154px;
+  margin-top: -180px;
+}*/
+
+body.error-img {
+  display: table;
+}
+body.error-img div {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+
+
+/* ravemode */
+.rave { background-color: #0f0 !important; }
+.rave.strobe img.lasers-bg { opacity: 0.2; }
+/*.rave-on { background-color: #0F0 !important; }
+.rave-off {
+  background-color: black !important;
+  background-image: url('ravemode-lasershow-bg.jpg');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}*/
+
+
+.rave img.lasers-bg {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -100;
+}
+
+#home.rave article, #home.rave article a {
+  background-color: black;
+  color: white;
+}
+
+#home.rave article span.initial, #home.rave.strobe a.qrpop:hover {
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+  -moz-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'invert\'><feColorMatrix in='SourceGraphic' type='matrix' values='-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0'/></filter></svg>#invert");
+}
+
+#rave-music { position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 115px; }
+

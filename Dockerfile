@@ -1,0 +1,28 @@
+# Version 1.0.0
+# cyan.img.Nginx
+
+#========== Basic Image ==========
+From nginx:1.9.11
+MAINTAINER "DreamInSun"
+
+#========== Expose ==========
+ENV NGINX_HOME /usr/share/nginx
+#========== Expose ==========
+ADD nginx $NGINX_HOME
+
+#========== Expose ==========
+EXPOSE 80
+
+
+#========== Expose ==========
+VOLUMN $NGINX_HOME/sites-enabled
+VOLUMN $NGINX_HOME/ssl
+VOLUMN $NGINX_HOME/html
+VOLUMN $NGINX_HOME/conf
+
+#========= Add Entry Point ==========
+#ADD shell /shell
+#RUN chmod a+x /shell/*
+
+#========= Start Service ==========
+ENTRYPOINT ["/shell/docker-entrypoint.sh"]
