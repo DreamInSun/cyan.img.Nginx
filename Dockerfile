@@ -6,19 +6,22 @@ From nginx:1.9.11
 MAINTAINER "DreamInSun"
 
 #========== Expose ==========
-ENV NGINX_HOME /usr/share/nginx
+ENV NGINX_HOME /etc/nginx
+ENV NGINX_DATA /data
+
 #========== Expose ==========
 ADD nginx $NGINX_HOME
 
 #========== Expose ==========
-EXPOSE 80
-
+#EXPOSE 80
+#EXPOSE 443
 
 #========== Expose ==========
-VOLUME $NGINX_HOME/sites-enabled
-VOLUME $NGINX_HOME/ssl
-VOLUME $NGINX_HOME/html
-VOLUME $NGINX_HOME/conf
+VOLUME $NGINX_DATA/sites-enabled
+VOLUME $NGINX_DATA/ssl
+VOLUME $NGINX_DATA/html
+VOLUME $NGINX_DATA/conf.d
+VOLUME $NGINX_DATA/log
 
 #========= Add Entry Point ==========
 #ADD shell /shell
