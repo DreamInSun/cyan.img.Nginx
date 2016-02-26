@@ -15,10 +15,10 @@ EXPOSE 80
 
 
 #========== Expose ==========
-VOLUMN $NGINX_HOME/sites-enabled
-VOLUMN $NGINX_HOME/ssl
-VOLUMN $NGINX_HOME/html
-VOLUMN $NGINX_HOME/conf
+VOLUME $NGINX_HOME/sites-enabled
+VOLUME $NGINX_HOME/ssl
+VOLUME $NGINX_HOME/html
+VOLUME $NGINX_HOME/conf
 
 #========= Add Entry Point ==========
 #ADD shell /shell
