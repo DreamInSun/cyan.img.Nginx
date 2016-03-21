@@ -24,8 +24,9 @@ VOLUME $NGINX_DATA/conf.d
 VOLUME $NGINX_DATA/log
 
 #========= Add Entry Point ==========
-#ADD shell /shell
-#RUN chmod a+x /shell/*
+ADD shell /shell
+RUN chmod a+x /shell/*
 
 #========= Start Service ==========
 ENTRYPOINT ["/shell/docker-entrypoint.sh"]
+CMD ["nginx","-g","daemon off;"],
