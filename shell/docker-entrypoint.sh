@@ -5,3 +5,4 @@ echo NGINX_DATA is $NGINX_DATA
 
 
 echo ========== Start Nginx ==========
+nginx -g 'deamon off;'
