@@ -7,7 +7,6 @@ MAINTAINER "DreamInSun"
 
 #========== Expose ==========
 ENV NGINX_HOME /etc/nginx
-ENV NGINX_DATA /data
 
 #========== Expose ==========
 ADD nginx $NGINX_HOME
@@ -17,11 +16,11 @@ ADD nginx $NGINX_HOME
 #EXPOSE 443
 
 #========== Expose ==========
-VOLUME $NGINX_DATA/sites-enabled
-VOLUME $NGINX_DATA/ssl
-VOLUME $NGINX_DATA/html
-VOLUME $NGINX_DATA/conf.d
-VOLUME $NGINX_DATA/log
+VOLUME $NGINX_HOME/sites-enabled
+VOLUME $NGINX_HOME/ssl
+VOLUME $NGINX_HOME/html
+VOLUME $NGINX_HOME/conf.d
+VOLUME $NGINX_HOME/log
 
 #========= Add Entry Point ==========
 ADD shell /shell
