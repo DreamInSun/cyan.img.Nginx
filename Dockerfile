@@ -28,4 +28,4 @@ RUN chmod a+x /shell/*
 
 #========= Start Service ==========
 ENTRYPOINT ["/shell/docker-entrypoint.sh"]
-CMD ["nginx","-g","daemon off;"],
+CMD ["nginx","-g","daemon off;"]

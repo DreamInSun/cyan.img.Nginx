@@ -20,8 +20,8 @@ server {
 
     #========== SSL ==========
     ssl                  off;
-    ssl_certificate      /etc/nginx/ssl/1_17orange.com_bundle.crt;
-    ssl_certificate_key  /etc/nginx/ssl/2_17orange.com.key;
+    #ssl_certificate      /etc/nginx/ssl/1_17orange.com_bundle.crt;
+    #ssl_certificate_key  /etc/nginx/ssl/2_17orange.com.key;
 
     ssl_session_timeout  5m;
 
