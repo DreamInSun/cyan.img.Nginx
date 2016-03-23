@@ -170,6 +170,6 @@ server {
     }
         
     #========== Log ==========
-    access_log /data/17orange/api/access.log;
+    #access_log /etc/nginx/log/17orange/api/access.log;
 }
 

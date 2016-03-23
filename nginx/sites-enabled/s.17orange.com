@@ -15,7 +15,7 @@ server
     charset utf-8;
     
     #========== SSL ==========
-    ssl                  off;
+    ssl                   off;
     #ssl_certificate      /etc/nginx/ssl/1_17orange.com_bundle.crt;
     #ssl_certificate_key  /etc/nginx/ssl/2_17orange.com.key;
 
@@ -33,6 +33,6 @@ server
     }
         
     #========== Log ==========
-    access_log /data/17orange/s/access.log;
-    error_log /data/17orange/s/error.log;
+    #access_log /etc/nginx/log/17orange/s/access.log;
+    #error_log /etc/nginx/log/17orange/s/error.log;
 }
