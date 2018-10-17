@@ -1,0 +1,28 @@
+#===== 安装chocolatey
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+
+#===== 安装consul-template 
+choco install consul-template
+
+#===== 执行
+consul-template.exe -consul core.ecoho.cn:8500 -template "./test.ctmpl:./test.conf"
+
+
+consule-template.exe 
+
+#===== 语法
+https://github.com/hashicorp/consul-template
+
+
+#===== Nginx 集成 Consul
+https://github.com/yanana/docker-nginx-consul-template
+
+
+#====== 列表 
+{{with node}}
+	{{range services}} {{ .Name }}
+		{{ range service .Name }} {{ .ID }} {{.}}{{end}}
+	{{end}}
+{{end}}
+

@@ -1,0 +1,1 @@
+consul-template.exe -consul core.ecoho.cn:8500 -template "./test.ctmpl:./test.conf"
