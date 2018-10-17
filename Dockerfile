@@ -19,6 +19,8 @@ RUN apt-get update \
     && apt-get purge -qqy curl apt-transport-https apt-utils gnupg1 \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get install -qqy telnet net-tools   
+
 # Keep the nginx logs inside the container
 RUN unlink /var/log/nginx/access.log \
     && unlink /var/log/nginx/error.log \
@@ -27,7 +29,6 @@ RUN unlink /var/log/nginx/access.log \
     && chown nginx /var/log/nginx/*log \
     && chmod 644 /var/log/nginx/*log
 
-RUN apt-get ​apt-get install  telnet  
 	
 #===== amplify ======
 # Copy nginx stub_status config
