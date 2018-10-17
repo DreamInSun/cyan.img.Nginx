@@ -1,4 +1,4 @@
-# Version 1.0.0
+# Version 2.1.0
 # cyan.svc.Nginx
 
 #========== Basic Image ==========
@@ -27,11 +27,14 @@ RUN unlink /var/log/nginx/access.log \
     && chown nginx /var/log/nginx/*log \
     && chmod 644 /var/log/nginx/*log
 
+RUN apt-get ​apt-get install  telnet  
+	
+#===== amplify ======
 # Copy nginx stub_status config
-COPY ./amplify/conf.d/stub_status.conf /etc/nginx/conf.d 
+# COPY ./amplify/conf.d/stub_status.conf /etc/nginx/conf.d 
 
-#ENV API_KEY 1234567890 
-#ENV AMPLIFY_IMAGENAME my-docker-instance-123
+# ENV API_KEY 1234567890 
+# ENV AMPLIFY_IMAGENAME my-docker-instance-123
 
 # The /entrypoint.sh script will launch nginx and the Amplify Agent.
 # The script honors API_KEY and AMPLIFY_IMAGENAME environment
@@ -48,7 +51,7 @@ EXPOSE 8443
 VOLUME $NGINX_HOME/sites-enabled
 VOLUME $NGINX_HOME/stream-enabled
 VOLUME $NGINX_HOME/ssl
-VOLUME $NGINX_HOME/html
+VOLUME $NGINX_HOME/pages
 VOLUME $NGINX_HOME/conf.d
 VOLUME $NGINX_HOME/log
 
@@ -57,7 +60,7 @@ ADD shell /shell
 RUN chmod a+x /shell/*
 
 #========= Start Service ==========
-#ENTRYPOINT ["/shell/docker-entrypoint.sh"]
-#CMD ["nginx","-g","daemon off;"]
+#ENTRYPOINT ["/shell/amplify-entrypoint.sh"]
 
-ENTRYPOINT ["/shell/amplify-entrypoint.sh"]
+ENTRYPOINT ["/shell/docker-entrypoint.sh"]
+CMD ["nginx","-g","daemon off;"]
