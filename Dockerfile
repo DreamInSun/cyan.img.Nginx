@@ -1,4 +1,4 @@
-# Version 2.1.0
+# Version 2.2.2
 # cyan.svc.Nginx
 
 #========== Basic Image ==========
@@ -8,6 +8,9 @@ MAINTAINER "DreamInSun"
 #========== Override Nginx File ==========
 ENV NGINX_HOME /etc/nginx
 ADD nginx $NGINX_HOME 
+
+#========== Install Telnet ==========
+RUN apt-get install -qqy telnet 
 
 #========== Install NGINX Amplify Agent ==========
 RUN apt-get update \
@@ -19,7 +22,6 @@ RUN apt-get update \
     && apt-get purge -qqy curl apt-transport-https apt-utils gnupg1 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install -qqy telnet net-tools   
 
 # Keep the nginx logs inside the container
 RUN unlink /var/log/nginx/access.log \
