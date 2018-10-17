@@ -1,4 +1,4 @@
-# Version 2.2.2
+# Version 2.2.3
 # cyan.svc.Nginx
 
 #========== Basic Image ==========
@@ -10,7 +10,8 @@ ENV NGINX_HOME /etc/nginx
 ADD nginx $NGINX_HOME 
 
 #========== Install Telnet ==========
-RUN apt-get install -qqy telnet 
+RUN apt-get update \
+	&& apt-get install -qqy telnet 
 
 #========== Install NGINX Amplify Agent ==========
 RUN apt-get update \
