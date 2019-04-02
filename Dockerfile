@@ -23,7 +23,15 @@ RUN apt-get update \
     && apt-get purge -qqy curl apt-transport-https apt-utils gnupg1 \
     && rm -rf /var/lib/apt/lists/*
 
+#========== Install ==========
+ADD install /install
+WORKDIR /install
+RUN unzip ./consul-template_0.19.5_linux_amd64.zip \
+    && mv ./consul-template /usr/bin/
 
+RUN rm -rf /install
+	
+#========== Log ==========
 # Keep the nginx logs inside the container
 RUN unlink /var/log/nginx/access.log \
     && unlink /var/log/nginx/error.log \
@@ -66,5 +74,6 @@ RUN chmod a+x /shell/*
 #========= Start Service ==========
 #ENTRYPOINT ["/shell/amplify-entrypoint.sh"]
 
+#运行consul ： consul-template --consul-addr 192.168.188.182:8500 --template "./nginx.ctmpl:vhost.conf:/usr/local/nginx/sbin/nginx -s reload" --log-level=info 
 ENTRYPOINT ["/shell/docker-entrypoint.sh"]
 CMD ["nginx","-g","daemon off;"]

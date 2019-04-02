@@ -70,3 +70,6 @@ https://github.com/weibocom/nginx-upsync-module
 
 增加了Amplify功能
 https://github.com/nginxinc/docker-nginx-amplify
+
+### 1.2.0
+默认配置增加了WebSocket反向代理
