@@ -10,8 +10,7 @@ ENV NGINX_HOME /etc/nginx
 ADD nginx $NGINX_HOME 
 
 #========== Install Telnet ==========
-RUN apt-get update \
-	&& apt-get install -qqy telnet 
+RUN apt-get update && apt-get install -qqy telnet 
 
 #========== Install NGINX Amplify Agent ==========
 RUN apt-get update \
@@ -26,9 +25,7 @@ RUN apt-get update \
 #========== Install ==========
 # ADD install /install
 # WORKDIR /install
-# RUN unzip ./consul-template_0.19.5_linux_amd64.zip \
-    && mv ./consul-template /usr/bin/
-
+# RUN unzip ./consul-template_0.19.5_linux_amd64.zip && mv ./consul-template /usr/bin/
 # RUN rm -rf /install
 	
 #========== Log ==========

@@ -76,3 +76,6 @@ https://github.com/nginxinc/docker-nginx-amplify
 
 ### 2.3.1
 暂时移除Consule组件
+
+### 2.3.2
+修正Docker脚本错误
