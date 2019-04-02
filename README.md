@@ -64,12 +64,15 @@ e.g.对demo.cyan.org.cn:80端口的服务,配置文件名为 demo.cyan.org.cn.80
 优化文件结构和基本配置
 扩展了MIME设置
 
-### 1.1.0
+### 2.2.3
 增加了nginx-upsync-module插件,配合etcd/consul等服务发现
 https://github.com/weibocom/nginx-upsync-module
 
 增加了Amplify功能
 https://github.com/nginxinc/docker-nginx-amplify
 
-### 1.2.0
+### 2.3.0
 默认配置增加了WebSocket反向代理
+
+### 2.3.1
+暂时移除Consule组件

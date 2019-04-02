@@ -24,12 +24,12 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 #========== Install ==========
-ADD install /install
-WORKDIR /install
-RUN unzip ./consul-template_0.19.5_linux_amd64.zip \
+# ADD install /install
+# WORKDIR /install
+# RUN unzip ./consul-template_0.19.5_linux_amd64.zip \
     && mv ./consul-template /usr/bin/
 
-RUN rm -rf /install
+# RUN rm -rf /install
 	
 #========== Log ==========
 # Keep the nginx logs inside the container
