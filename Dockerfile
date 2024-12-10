@@ -12,6 +12,9 @@ ADD nginx $NGINX_HOME
 #========== Install Telnet ==========
 RUN apt-get update && apt-get install -qqy telnet 
 
+#========== Install Certbot ==========
+RUN sudo apt-get install certbot python2-certbot-nginx
+
 #========== Install NGINX Amplify Agent ==========
 RUN apt-get update \
     && apt-get install -qqy curl python apt-transport-https apt-utils gnupg1 procps \
