@@ -1,8 +1,8 @@
-# Version 2.2.3
+# Version 2.3.0
 # cyan.svc.Nginx
 
 #========== Basic Image ==========
-From nginx:1.13.7
+From nginx:1.27.3
 MAINTAINER "DreamInSun"
 
 #========== Override Nginx File ==========
@@ -13,17 +13,17 @@ ADD nginx $NGINX_HOME
 RUN apt-get update && apt-get install -qqy telnet 
 
 #========== Install Certbot ==========
-RUN sudo apt-get install certbot python2-certbot-nginx
+RUN sudo apt-get install -qqy certbot python3-certbot-nginx
 
 #========== Install NGINX Amplify Agent ==========
-RUN apt-get update \
-    && apt-get install -qqy curl python apt-transport-https apt-utils gnupg1 procps \
-    && echo 'deb https://packages.amplify.nginx.com/debian/ stretch amplify-agent' > /etc/apt/sources.list.d/nginx-amplify.list \
-    && curl -fs https://nginx.org/keys/nginx_signing.key | apt-key add - > /dev/null 2>&1 \
-    && apt-get update \
-    && apt-get install -qqy nginx-amplify-agent \
-    && apt-get purge -qqy curl apt-transport-https apt-utils gnupg1 \
-    && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update \
+#    && apt-get install -qqy curl python apt-transport-https apt-utils gnupg1 procps \
+#    && echo 'deb https://packages.amplify.nginx.com/debian/ stretch amplify-agent' > /etc/apt/sources.list.d/nginx-amplify.list \
+#    && curl -fs https://nginx.org/keys/nginx_signing.key | apt-key add - > /dev/null 2>&1 \
+#    && apt-get update \
+#    && apt-get install -qqy nginx-amplify-agent \
+#    && apt-get purge -qqy curl apt-transport-https apt-utils gnupg1 \
+#    && rm -rf /var/lib/apt/lists/*
 
 #========== Install ==========
 # ADD install /install
@@ -62,6 +62,7 @@ EXPOSE 8443
 #========== Expose ==========
 VOLUME $NGINX_HOME/sites-enabled
 VOLUME $NGINX_HOME/stream-enabled
+VOLUME $NGINX_HOME/cert
 VOLUME $NGINX_HOME/ssl
 VOLUME $NGINX_HOME/pages
 VOLUME $NGINX_HOME/conf.d
